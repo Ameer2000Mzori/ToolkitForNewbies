@@ -1,0 +1,43 @@
+the way i use fontawesome in react js is as following:
+
+
+================================================
+# You probably don't need all of these, just pick what you need
+
+npm i --save @fortawesome/pro-solid-svg-icons
+npm i --save @fortawesome/pro-regular-svg-icons
+npm i --save @fortawesome/pro-light-svg-icons
+npm i --save @fortawesome/pro-thin-svg-icons
+npm i --save @fortawesome/pro-duotone-svg-icons
+npm i --save @fortawesome/sharp-solid-svg-icons
+npm i --save @fortawesome/sharp-regular-svg-icons
+npm i --save @fortawesome/sharp-light-svg-icons
+npm i --save @fortawesome/sharp-thin-svg-icons
+
+================================================
+# then download the following package
+
+npm i --save @fortawesome/react-fontawesome@latest
+
+
+================================================
+# the way of using and importing fonts icons =>
+
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+export const Mailroom = () => (
+  <div>
+    <FontAwesomeIcon icon="fa-solid fa-check-square" />
+    Your <FontAwesomeIcon icon="fa-regular fa-coffee" /> is hot!
+
+    Compliments of the <FontAwesomeIcon icon="fa-sharp fa-solid fa-hat-chef" />!
+  </div>
+)
+
+
+
+
+================================================================
+please keep in mind that this configuration is not the best
+but its my way of using fontawesome 
