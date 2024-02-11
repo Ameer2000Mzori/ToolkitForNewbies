@@ -1,0 +1,30 @@
+the way i use eslint with htlm is as following : 
+
+=> npm init @eslint/config
+
+then put the folloing code in the config file :
+
+=>
+
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'airbnb-base', 
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    'linebreak-style': 'off',
+    semi: 'off',
+  },
+}
+
+
+================================================================
+please keep in mind that this configuration is not the best
+but its my way of using eslint 
