@@ -1,0 +1,17 @@
+create folder called as following : 
+
+=> .prettierrc.json
+
+
+then put this code inside of it : 
+
+{
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "semi": false,
+  "singleQuote": true
+}
+
+================================================================
+please keep in mind that this configuration is not the best
+but its my way of using prettier 
