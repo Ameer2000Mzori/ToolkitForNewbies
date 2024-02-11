@@ -1,0 +1,36 @@
+dotenv setup
+
+1- open terminal and enter the following line
+=> npm install dotenv --save
+
+2- create file called .env there you sould use the secret keys only
+
+================================================================
+example of use
+
+PORT = 4000
+
+this is example and imagine its secret key how to use it ?
+
+================================================================
+
+the use of the key is very simple
+
+1- importing .env as following :
+=> import 'dotenv/config'
+
+using it as following :
+=> const Port = process.env.PORT
+
+this way you have created a secret key that will be used
+important to know that you have to ignore the .env file always
+
+================================================================
+
+create a new file called .env-example this way if people will
+download your project they want to know how to create their own
+.env file
+
+so after creating that new file you just put the folloing :
+
+=> PORT = YOUR_PROT or PORT = YOUR_SECRET_PORT or anything
