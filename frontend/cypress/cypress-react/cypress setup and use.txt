@@ -51,11 +51,11 @@ EXPLAINING THE CODE
 
 1- on top we have imports as we explain in setup
 
-2- then we have the entery of our frist test and that is called by discribe ('your text ', make it async if wanted ()=>{}
+2- then we have the enter of our first test and that is called by describe ('your text ', make it async if wanted ()=>{}
 
 3- it means as following it("shall open app file or component", () =>{}
 
-4- mount after importing it means go inside of this componenent
+4- mount after importing it means go inside of this component
 
 5- cy.contains means if there is 1 or there most be 1 
 
