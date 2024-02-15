@@ -1,0 +1,102 @@
+================================================================
+SETUP OF CYPRESS
+================================================================
+1- install cypress to frontend : npm install cypress --save-dev
+
+2- open cypress and do not choose e2e option : npx cypress open
+
+3- choose google for testing or anything you want 
+
+4- import your files as following => : import App from '../../src/App' 
+
+if your cypress folder is outside of src/ and it has its own components and that components where your test file is then you 
+need to import them like this " import App from '../../src/App'
+
+5- import tailwindcss if you use that for styling : import 'tailwindcss/tailwind.css'
+
+6- download this package if needed and if you can't import mount : npm install --save-dev @cypress/react --legacy-peer-deps
+
+7- import mount as following : import { mount } from '@cypress/react'
+
+8- start testing cypress : 
+
+================================================================
+EXAMPLE OF TESTING IN CYPRESS
+================================================================
+
+import react from 'react'
+import { mount } from '@cypress/react'
+import 'tailwindcss/tailwind.css'
+import App from '../../src/App'
+describe('App Component', async () => {
+  it('Successfully loads the App', () => {
+    mount(<App />) // Mount the App component
+    cy.contains('1').click().wait(1000)
+    cy.get('[data-cy="input-val"]').click().wait(1000)
+    cy.get('[data-cy="input-val"]').type('car').wait(1000)
+    cy.get('[data-cy="submit-btn"]').click().wait(1000)
+    cy.contains('1').click().wait(1000)
+    cy.contains('2').click().wait(1000)
+    cy.contains('3').click().wait(1000)
+    cy.contains('4').click().wait(1000)
+    cy.contains('5').click().wait(1000)
+    cy.contains('1').click().wait(1000)
+    cy.get('[data-cy="input-val"]').wait(1000).clear()
+  })
+})
+
+================================================================
+EXPLAINING THE CODE
+================================================================
+
+1- on top we have imports as we explain in setup
+
+2- then we have the entery of our frist test and that is called by discribe ('your text ', make it async if wanted ()=>{}
+
+3- it means as following it("shall open app file or component", () =>{}
+
+4- mount after importing it means go inside of this componenent
+
+5- cy.contains means if there is 1 or there most be 1 
+
+6- .click means click on it 
+
+7- .wait(1000) means wait 1s
+
+8-  cy.get means get this [data-cy="input-val"]
+
+means if there is an element you have give it a data-cy = 'input-val' it shall get it 
+
+and then we say click on it and then wait 1s then we say cy.get something called data-cy='input-val'
+
+and there we say .type it means type something and that something we can put in this ('car') so 
+
+.type('car') then we tell it to wait 1s
+
+then cy.get the submit button then wait 1s
+
+then cy.contains all following texts or something that has following numbers need to be clicked after
+each other and also need to wait after each one is click by 1s 
+
+then we say cy.get('[data-cy='input-val]').wait(1000).clear() that is same as saying go to the element that has
+
+
+[data-cy='input-val] and wait 1s then clear it 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
