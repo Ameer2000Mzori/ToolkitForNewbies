@@ -1,0 +1,309 @@
+EXPRESS   STEP 1 => the start
+=================================================
+1- create a folder called the backend
+
+2- from the terminal go to that file and type npm init -y
+
+3- then create a folder called src
+
+4- inside that folder create a file called app.js
+
+5- from there add something to the text for example =>  console.log("hallo world from backend")
+
+6- then go to package.json and remove text instead put dev and next to it add  'node src/app.js'
+
+also tpye the following command =>   "type": "module",
+
+7- if your file is not in src/  or called something else then change it to that 
+
+8- then install nodemon is a package that makes your backend run always and update
+
+9- install express.js by putting the next command in terminal ( please dont forget to be in the file of backend and not front end )
+
+10- the command => npm i express
+
+11- import express from 'express'  
+
+12- then use code the following  => 
+
+const app = express()
+app.use(express.json())
+
+
+13- this way you can create port and also apis 
+
+14- you have to create the following code for the port => 
+
+app.get = ('/',(req,res) =>{
+res.send('this is home page')
+})
+
+15- you have to listen to the sever 
+
+16 app.listen (3000, (req, res) =>{
+console.log('you app is running on port 3000');
+})
+
+
+
+=================================================
+
+EXPRESS   STEP 2 => the creation of router 
+
+=================================================
+
+1- then you will make a router as following 
+
+
+const router  = express.Router();
+
+2- you will make the app use the router as following 
+
+app.use(router)
+
+3- then instead of app.get you will use routr.get as following =>
+
+
+router.get = ('/',(req,res) =>{
+res.send('this is home page')
+})
+
+
+4- please understand that this does not work for listen 
+
+
+
+
+=================================================
+
+EXPRESS   STEP 3 => file cleaning and structure  
+
+=================================================
+
+1- make folders as following 
+
+2- controllers folder inside of it controller.js file 
+
+3- routes folder inside of it route.js file
+
+4- change folder name of app.js to server.js
+
+5- go back to package.json and make the name from app.js to server.js
+
+
+=================================================
+
+EXPRESS   STEP 4 => things to be replaced and changed position 
+
+=================================================
+
+
+
+1- route.js file should be built as following => 
+
+
+import express from 'express'
+import router from './route/routes.js'
+
+
+const app = express()
+app.use(express.json())
+app.use(router)
+
+// our port :
+const PORT = 3000
+
+
+  app.listen(PORT, (req, res) => {
+    console.log(`server is running at port ${PORT}`)
+  })
+})
+
+
+
+
+2- route.js file should be built as following => 
+
+import express from 'express'
+import { homePage, housesPage, addHouse } from '../controller/controllers.js'
+const router = express.Router()
+
+router.get('/', homePage)
+
+export default router
+
+3- controller.js file should be build as following => 
+
+
+export const homePage = (req, res) => {
+  res.status(200).send('this is main page')
+}
+
+
+=================================================
+
+.env   STEP 5 => creating and downloading.env
+
+=================================================
+
+1- first download the package of dotenv from npm 
+
+2- create file called .env and ignore it by gitignore file
+
+3- put the following things that are very secret in it like : 
+
+PORT = 4000
+MGDB_USER = ""
+MGDB_PASS = ""
+MGDB_LINK_1 = 'mongodb+.mongodb.net/'
+
+// dont worry we will get these informations from mangodb when we connect now next step is 
+
+4- go to server.js file and enter =>
+
+
+to import 
+
+import 'dotenv/config'
+
+
+to use 
+
+const PORT = process.env.PORT
+
+
+
+=================================================
+
+MANGODB   STEP 6 => Creation of MongoDB and files
+
+=================================================
+
+
+1- create a folder called db inside of that file called db.js 
+
+2- create a folder called modules and inside of that imagine any item you want to make Schema from 
+
+3- Don't forget that these to folders should be also inside of the src folder
+
+4- download for sure mangodb as package => npm install mongodb
+
+
+
+=================================================
+
+MANGODB   STEP 6 => use of MongoDB 
+
+=================================================
+
+1- after going to mangodb site and creating a project and from there getting the link and 
+user name and password you should put the user name and password in .env file because they are 
+secret 
+
+2- then you have to code the following inside of the db.js file
+to connect your db to the project 
+
+import mongoose from 'mongoose'
+
+let db = {}
+
+const uri = `mongodb+srv://${process.env.MGDB_USER}:${process.env.MGDB_PASS}@real-state-app.skulpkd.mongodb.net/`
+
+const mongoConnect = (cb) => {
+  mongoose.set('strictQuery', true)
+  mongoose
+    .connect(uri, {
+      usenewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      cb()
+    })
+    .catch((err) => console.log(err))
+}
+
+export default mongoConnect
+
+2- and these changes sould be happen inside of your server.js file =>
+
+import mongoConnect from './db/db.js'
+
+mongoConnect(() => {
+  app.listen(PORT, (req, res) => {
+    console.log(`server is running at port ${PORT}`)
+  })
+})
+
+
+
+3- after that go to modules folder and name a file as you want 
+
+4- for example houses.js and in this file we will create Schema 
+
+as following =>
+
+
+import mongoose, { Schema } from 'mongoose'
+
+const housesSchema = new Schema({
+  id: { type: String, required: true },
+  title: { type: String, required: true },
+  price: { type: Number, required: true },
+  country: { type: String, required: true },
+  city: { type: String, required: true },
+  bedrooms: { type: Number, required: true },
+  bathrooms: { type: Number, required: true },
+  description: { type: String, required: true },
+})
+
+const houses = mongoose.model('houses', housesSchema)
+
+export { houses }
+
+
+5- inside of our controller file we should import houses
+
+6- and use it as following for example to show data as get =>
+
+
+export const housesPage = (req, res) => {
+  houses
+    .find()
+    .sort({
+      createAt: -1,
+    })
+    .then((result) => {
+      res.status(200).json(result)
+    })
+    .catch((err) => console.log(err))
+}
+
+
+
+
+
+
+=================================================
+
+The end => you need to learn following
+
+=================================================
+
+
+
+as if you want to learn more and add more logic as post and more
+
+you need to learn the logic as inside of controllers should be changes and 
+
+how mangodb accepts and how to work with Schema 
+
+please note if you want to connect backend and front end as test on your pc 
+
+use in frontend package.json file the following code =>
+
+"proxy": "http://localhost:4000/",
+
+and backend package.json file port should be also 4000 
+ 
+this way you can use your api at the same port and connect backend with frontend
+
