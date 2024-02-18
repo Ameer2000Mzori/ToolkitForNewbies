@@ -1,0 +1,124 @@
+1- to install package json type in the terminal : npm init -y 
+
+2- to install web pack type in the terminal : npm i -D webpack webpack-cli
+
+3- to run wepack change test in package.json to build: 'webpack --mode production'; 
+
+4- to build enter in the tyerminal : npm run build 
+
+5- to config the webpack you need to create a file called : webpack.config.js
+
+------------------------------------------------------------------------------------------------------------------------------
+how to config the inside the webpack file : 
+------------------------------------------------------------------------------------------------------------------------------
+
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+    mode: "development",
+    entry: {
+        bundle: path.resolve(__dirname, "src", "index.js"),
+    },
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "[name].js",
+        clean: true,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"],
+                    },
+                },
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: "asset/resource",
+                generator: {
+                    filename: "assets/[name][ext]", // Output path for images
+                },
+            },
+        ],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: "webpack app",
+            filename: "index.html",
+            template: path.resolve(__dirname, "src", "index.html"),
+        }),
+    ],
+};
+
+------------------------------------------------------------------------------------------------------------------------------
+the meaning of used titles and names in wepack config file : 
+------------------------------------------------------------------------------------------------------------------------------
+1- mode used to make the output of the javascripts code to deferent : production or development mode.
+
+2- entery is where your javascript code located 
+
+3- output is Object within it you have path and file name, the path where you want your file to be created and filename is 
+what the name of that javascript file should be that you have created with webpack 
+
+4- module is object and inside of module is arry of rules:[{test:/\.css$/, use:['style-loader', 'css-loader', 'sass-loader']}]
+this way you will enable webpack to turn on your css file, change css to something else if you using sass or any other format of css
+
+5- after installing html webpack plugin 
+you need to create a object of plugings[] then inside of that put new HtmlWebpackPlugin({ title: 'webpack page', filename:'index.html'})
+title is the title of your wepack page 
+file name is to change ur html file name after building 
+
+6- template is from where should wepack take your html that you have build and rebuild it again!
+
+------------------------------------------------------------------------------------------------------------------------------
+install sass and css loaders: 
+------------------------------------------------------------------------------------------------------------------------------
+1- to install css or sass loader use : npm i -D sass style-loader css-loader sass-loader
+
+------------------------------------------------------------------------------------------------------------------------------
+install Bable-loaders: 
+------------------------------------------------------------------------------------------------------------------------------
+1- to install bable loader use : npm i -D babel-loader @babel/core @babel/preset-env
+
+2- add this to your code :            
+ {
+                test:/\.js$/,
+                exclude: /node_modules/,
+                use:{
+                    loader: "babel-loader",
+                    options: {
+                        presets:["@babel/preset-env"],
+                    }
+                }
+            }
+
+
+------------------------------------------------------------------------------------------------------------------------------
+ Image plugin all steps: 
+------------------------------------------------------------------------------------------------------------------------------
+
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: "asset/resource",
+                generator: {
+                    filename: "assets/[name][ext]", // Output path for images
+                },
+            },
+
+------------------------------------------------------------------------------------------------------------------------------
+install html webpack plugin : 
+------------------------------------------------------------------------------------------------------------------------------
+1- to install html plugin use : npm i -D html-webpack-plugin
+
+2- add to the config top : const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+3- to build enter in the tyerminal : npm run build 
