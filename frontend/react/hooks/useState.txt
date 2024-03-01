@@ -1,0 +1,44 @@
+this file is about useState hook 
+
+1- first we need to import useState from reactjs as following : 
+
+import react, { useState } from 'react'
+
+
+then we will work with useState hook as following :
+
+const [data, setData] = useState([])
+
+
+here we have created a arry called data and we can add more items or data to it using setData.
+
+imagine we have a array of objects: 
+
+const usersList = [
+    {
+        name: 'list 1',
+        age: 1,
+    },
+    {
+        name: 'list 2',
+        ag: 2,
+    },
+        {
+        name: 'list 3',
+        ag: 3,
+    },
+        {
+        name: 'list 4',
+        ag: 4,
+    },
+        {
+        name: 'list 5',
+        ag: 5,
+    },
+]
+
+now if we want this data to be passed to the data array we will do it this way : 
+
+setData(usersList)
+
+and this way we have added out list to our data and now we can work with data and manipulating it our way.
