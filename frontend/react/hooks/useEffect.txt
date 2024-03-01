@@ -1,0 +1,43 @@
+this file is the explanation of useEffect hook 
+
+first we need to import useEffect as following:
+
+import react, { useEffect } from "react";
+
+this way we have imported useEffect.
+
+now we need to work with the useEffect
+
+and the setup is as following:
+
+useEffect(()=>{
+
+console.log('Hello World!')
+
+},[])
+
+
+as you can see we have set up the useEffect. 
+
+code explanation :
+
+everytime when the page is loaded, the useEffect will be called and will be called once
+and in this case we will get a Hello World! message in our console window, but if you want to use the useEffect hook
+multiple times, 
+
+you need to  put something that updates inside of [] in your useEffect hook that we imagine we have something called count 
+
+so  : 
+
+useEffect(()=>{
+
+console.log('Hello World!')
+
+},[count])
+
+
+this way if count becomes 1, we will get a Hello World! message in our console window
+and if count becomes 2, we will get a Hello World! message
+and if count becomes 3, we will get hello world again
+
+this is how useEffect works
