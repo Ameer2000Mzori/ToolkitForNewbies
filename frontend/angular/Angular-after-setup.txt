@@ -1,0 +1,7 @@
+=================================================
+ enter the following command for generating components
+=================================================
+
+1- ng generate component course-card
+
+=> course-card is the name of component ( you can change that anytime ) 

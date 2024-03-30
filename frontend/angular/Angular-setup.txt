@@ -1,0 +1,28 @@
+the first step of installing the angular latest version
+=================================================
+
+1- enter the following code to install angular as global in your device
+
+npm install -g @angular/cli
+
+2- creating a new project for angular enter the following command: 
+
+ ng new angular-course
+
+3- are you sure YES
+
+4- angular routing? YES 
+
+5- choose SASS
+
+
+
+=================================================
+to start your project on the website enter the following command  : 
+=================================================
+
+1- npm start
+
+=================================================
+ 
+=================================================
