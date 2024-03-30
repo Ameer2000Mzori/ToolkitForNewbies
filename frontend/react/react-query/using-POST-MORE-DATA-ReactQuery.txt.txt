@@ -1,0 +1,49 @@
+if you want to delete or post or anything but not get data then you need to import the following Query
+
+// importing :
+
+import { useMutation } from '@tanstack/react-query';
+
+// using : 
+
+const result = useMutation({
+mutationFn: ()=> axios.post("http://localhost:5000/api/tasks", {title:'some title'})
+})
+
+the whole example code : 
+
+
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+
+const Form = () => {
+  const [newItemName, setNewItemName] = useState("");
+
+  const { mutate: createTask, isLoading } = useMutation({
+    mutationFn: (taskTitle) =>
+      axios.post("http://localhost:5000/api/tasks", { title: taskTitle }),
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createTask(newItemName);
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <h4>task bud</h4>
+      <div className="form-control">
+        <input
+          type="text "
+          className="form-input"
+          value={newItemName}
+          onChange={(event) => setNewItemName(event.target.value)}
+        />
+        <button type="submit" className="btn" disabled={isLoading}>
+          add task
+        </button>
+      </div>
+    </form>
+  );
+};
+export default Form;

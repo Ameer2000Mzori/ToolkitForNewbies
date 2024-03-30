@@ -1,0 +1,25 @@
+first you need to install reactQuery entering te following command in terminal
+
+npm i @tanstack/react-query 
+
+then you need to use reactQuery all over your application as following : 
+
+got to main or app.js file of your reactjs project then import the two following things :
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+then you need to create new quertclient as following : 
+
+const queryClient = new QueryClient();
+
+and you need to use it as the following code : 
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
+);

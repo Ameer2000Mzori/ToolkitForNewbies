@@ -1,0 +1,24 @@
+as following if you want to use reactQuery you need to do the following 
+
+first import the useQuery where you want to fetch data + import axios 
+so as following : 
+
+import { useQuery } from "@tanstack/react-query";
+
+then you need to use that Query as following : 
+
+
+  const { data, isLoading, isFetching, isError } = useQuery({
+    queryKey: ["tasks"],
+    queryFn: () => axios.get("http://localhost:5000/api/tasks"),
+  });
+
+
+this we we are first connecting to the api and we are getting the data and also we are getting more things
+like as : 
+data , isLoading, isFetching, and isError. those all you can use them as following : 
+
+  if (isError) return <div>there is an error...</div>;
+  if (isLoading) return <div>Loading Data...</div>;
+
+and more...
