@@ -1,0 +1,144 @@
+instal react redux by entering the next command in terminal : 
+
+npm install @reduxjs/toolkit react-redux
+
+
+
+how to use redux toolkit and create store? do the following : 
+
+1- fisrt we need to create file called store 
+
+2- import configureStore as following : 
+
+
+import {configureStore } from "@reduxjs/toolkit"
+
+
+export const store  = configureStore({
+reducer: {},
+
+});
+
+
+
+now we need to wrap our indexjs with redux toolkit as followking : 
+
+
+1-fisrt import store 
+
+2- then import Provider from react-redux as following : 
+
+import {store} from './store'
+
+import {Provider} from 'react-redux'
+
+
+and wrap your app as following + pass it store prop: 
+
+
+<Provider store={store}>
+<App/> 
+</Provider>
+
+
+creation of first slice : 
+
+- first create folder called features 
+
+- within that folder create a folder called cart 
+
+- then create file inside that called cartSlice.js
+
+
+following step will teach you how to create slice : 
+
+
+
+1- first import createSlice from @reduxjs/toolkit is following : 
+
+2- import { createSlice } from "@reduxjs/toolkit"
+
+
+
+3- do the following to create slice 
+
+
+
+const initialState={
+cartItem : [],
+amout: 0, 
+total : 0, 
+isLoading: true,
+}
+
+
+export const cartSlice = createSlice ({
+
+name: "cart", 
+initialState
+
+});
+
+
+
+
+following stepes will connect slice that we created with store : 
+
+
+
+1- first export cartSlice.reducer as following : 
+
+export default cartSlice.reducer;
+
+
+
+2 - go to store ans import cartReducer as following : 
+
+
+import cartReducer from "the place of the file" 
+
+
+
+3- put the cartReducer insdie the store as following : 
+
+
+
+
+export const store  = configureStore({
+reducer: { 
+
+cart: cartReducer 
+
+},
+
+});
+
+
+
+following steps will show you how to acces items from store using useSelector : 
+
+
+1- import useSelector as following :
+
+import { useSelector } from "react-redux"
+
+
+2- then get the data as following : 
+
+
+const cart = useSelector((store) => store.cart);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
