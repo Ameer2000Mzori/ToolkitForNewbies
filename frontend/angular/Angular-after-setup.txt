@@ -3,5 +3,5 @@
 =================================================
 
 1- ng generate component course-card
-
+ng generate component course-card
 => course-card is the name of component ( you can change that anytime ) 
