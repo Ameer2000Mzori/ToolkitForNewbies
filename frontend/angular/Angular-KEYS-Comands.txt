@@ -1,0 +1,18 @@
+1- to to install Angular investment 
+npm i @angular/cli
+
+2-  create new Angular project 
+
+ng new <name of project>
+
+3- to create component in Angular 
+
+ng g component  <name of component> 
+
+4- to run the project 
+
+ng serve / npm start / npm run start
+
+5- to create pipe
+
+ng g pipe <name of pipe> 
