@@ -16,3 +16,7 @@ ng serve / npm start / npm run start
 5- to create pipe
 
 ng g pipe <name of pipe> 
+
+6- to create a module 
+
+ ng g < name of module>
