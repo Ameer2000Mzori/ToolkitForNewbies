@@ -1,4 +1,4 @@
-1- to to install Angular investment 
+1- to to install Angular environment 
 npm i @angular/cli
 
 2-  create new Angular project 
@@ -19,4 +19,4 @@ ng g pipe <name of pipe>
 
 6- to create a module 
 
- ng g < name of module>
+ ng g m < name of module> --routing
