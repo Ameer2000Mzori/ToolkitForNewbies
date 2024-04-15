@@ -1,44 +1,34 @@
-this file is about useState hook 
+there is many ways to use useState is this is one of them 
 
-1- first we need to import useState from reactjs as following : 
+first import useState as following 
 
-import react, { useState } from 'react'
-
-
-then we will work with useState hook as following :
-
-const [data, setData] = useState([])
+=> import React, { useState } from 'react'
 
 
-here we have created a arry called data and we can add more items or data to it using setData.
+here we are making or implementing the useState hook and giving 0 as default value
+  const [count, setCount] = useState(0)
 
-imagine we have a array of objects: 
 
-const usersList = [
-    {
-        name: 'list 1',
-        age: 1,
-    },
-    {
-        name: 'list 2',
-        ag: 2,
-    },
-        {
-        name: 'list 3',
-        ag: 3,
-    },
-        {
-        name: 'list 4',
-        ag: 4,
-    },
-        {
-        name: 'list 5',
-        ag: 5,
-    },
-]
+here we are saying 
+on click setCount get the count value and plus one 
+      <button onClick={() => setCount((p) => (p += 1))}>Click</button>
 
-now if we want this data to be passed to the data array we will do it this way : 
+      <p>{count}</p>
 
-setData(usersList)
+the code looks like this 
 
-and this way we have added out list to our data and now we can work with data and manipulating it our way.
+import React, { useState } from 'react'
+
+const UseStateHook = () => {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <p>this is useState</p>
+      <button onClick={() => setCount((p) => (p += 1))}>Click</button>
+      <p>{count}</p>
+    </>
+  )
+}
+
+export default UseStateHook
