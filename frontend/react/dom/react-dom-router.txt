@@ -1,0 +1,47 @@
+this is document how to use react-dom-router
+
+first download the react-dom-router from npm 
+
+enter the next command in terminal 
+=> npm i react-router-dom
+
+
+then create file called navbar.jsx and import the following things =>
+
+=> import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+then you need to import the components you need to use 
+
+then you do the following thing 
+
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home.jsx'
+import About from './pages/About.jsx'
+
+const Navbar = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="*" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
+  )
+}
+
+export default Navbar
+
+
+// explanation of the following code =>
+        <Route path="*" element={<Home />} />
+
+
+here we say if user enters any url that is not valid the user must return to home pages
+
+and if the user enters /  or  /home also return him to home page
+
+else of the user enter /about sent him to about page where the about component is connected as following 
+        <Route path="/about" element={<About />} />
