@@ -14,7 +14,7 @@
 
 # 📖 About This Project <a name="about-project"></a>
 
-> This repository encompasses every tool or programming language that I have mastered or learned from various sources. The primary goal of this repository is to assist as many beginners as possible. For each tool or language, there is a dedicated folder bearing its name. Inside these folders, you will find files related to that specific tool or language. Please note that the quality of typing or explanations in the documents may initially be suboptimal or less understandable. However, I am committed to continuously updating the content to enhance its clarity. I am open to collaboration or tips to improve this repository.
+> This repository encompassesss every tool or programming language that I have mastered or learned from various sources. The primary goal of this repository is to assist as many beginners as possible. For each tool or language, there is a dedicated folder bearing its name. Inside these folders, you will find files related to that specific tool or language. Please note that the quality of typing or explanations in the documents may initially be suboptimal or less understandable. However, I am committed to continuously updating the content to enhance its clarity. I am open to collaboration or tips to improve this repository.
 
 <!-- AUTHORS -->
 
