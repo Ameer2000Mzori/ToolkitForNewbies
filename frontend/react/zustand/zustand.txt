@@ -24,3 +24,27 @@ count: 0,
 increment: () => {},
 decrement: () => {}, 
 }));
+
+
+now we will work more on the useCounterStore.
+
+const useCounterStore = create(() => ({
+count: 0,
+increment: () => {
+    set((state) => ({count: state.count + 1}))
+},
+decrement: () => {
+    set((state) => ({count: state.count - 1}))
+}, 
+}));
+
+now you can accces them to your home or app file as following 
+
+first import useCounterStore 
+
+then code the following thing to import any element is in ur useCounterStore 
+import { useCounterStore } from "/your files" 
+
+const count = useCounterStore((state) => state.count)
+const increment = useCounterStore((state) => state.increment)
+const decrement = useCounterStore((state) => state.decrement)
