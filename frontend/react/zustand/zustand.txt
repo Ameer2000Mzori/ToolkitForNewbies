@@ -1,0 +1,18 @@
+first download Zustand package entering following text in therminal : 
+
+npm install zustand
+
+then create a file called store.ts / store.js 
+
+then import create from zustand as following : 
+
+import { create } from "zustand";
+
+then do the following thing : 
+
+const useCounterStore = create(() => ({
+count: 0, 
+}));
+
+this way we have used zustand like react redux toolkit and its a custom hook. 
+
