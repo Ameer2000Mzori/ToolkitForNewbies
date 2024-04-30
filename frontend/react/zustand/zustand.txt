@@ -16,3 +16,11 @@ count: 0,
 
 this way we have used zustand like react redux toolkit and its a custom hook. 
 
+
+but now we will try to increment and decrement the count 
+
+const useCounterStore = create(() => ({
+count: 0,
+increment: () => {},
+decrement: () => {}, 
+}));
