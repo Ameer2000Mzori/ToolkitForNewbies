@@ -1,0 +1,46 @@
+first you need to enter app.routes.ts file
+
+then import the components needed for the routing
+
+then do the following code or type to make your /intro / intro component default component in your app.
+
+export const routes: Routes = [
+{ path: '', redirectTo: '/intro', pathMatch: 'full' },
+{ path: 'intro', component: IntroPageComponent },
+{ path: 'game', component: PuzzleComponent },
+{ path: 'about', component: AboutPageComponent },
+{ path: 'scores', component: ScoresPageComponent },
+{ path: '**', redirectTo: '/intro', pathMatch: 'full' },
+];
+
+
+then you need to go to the component were you need to implement the routing 
+
+
+as following i'm using IntroPageComponent were i will use my routing 
+
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+@Component({
+  selector: 'app-intro-page',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
+  templateUrl: './intro-page.component.html',
+  styleUrl: './intro-page.component.scss',
+})
+export class IntroPageComponent {
+  title = 'sliding-puzzle';
+}
+
+
+as you can see i have imported two modules and ( RouterLink , RouterLinkActive)
+
+and then you have to do the following inside of your html component 
+
+
+  <a routerLink="/about" routerLinkActive="active">About Page</a>
+  <a routerLink="/scores">scores</a>
+
+
+
+  this way you can use routing but this way is not lazy loading.

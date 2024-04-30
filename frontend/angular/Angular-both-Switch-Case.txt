@@ -1,0 +1,19 @@
+// do not forget to import this in angular new version: 
+import { CommonModule } from '@angular/common';
+imports: [CommonModule],
+
+<p>garnd-child-file works!</p>
+
+@switch (color) { @case ("red") {
+<div [ngStyle]="checkColor(color)">Red</div>
+} @case ("blue") {
+<div [ngStyle]="checkColor(color)">Blue</div>
+} }
+
+
+/// Angular older version use of switch case
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'">Red Text</div>
+  <div *ngSwitchCase="'blue'">Blue Text</div>
+  <div *ngSwitchDefault>Default Text</div>
+</div>
