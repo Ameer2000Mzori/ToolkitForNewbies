@@ -31,7 +31,7 @@
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome! please dont forget to contact ameerapex496@gmail.com
+Contributions, issues, and feature requests are welcome!! please dont forget to contact ameerapex496@gmail.com
 
 Feel free to check the [issues page](../../issues/).
 
